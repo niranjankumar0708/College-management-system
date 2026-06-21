@@ -1,0 +1,345 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+  /* Professional Light Claymorphism/Spatial Theme */
+  --bg-primary: #f0f3f8;
+  --bg-secondary: #ffffff;
+  --text-primary: #2d3748;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  
+  --primary: #0059ff;
+  --primary-light: #00d2ff;
+  --primary-rgb: 0, 89, 255;
+  
+  --secondary: #0ea5e9;
+  --accent: #10b981;
+  --warning: #f59e0b;
+  --error: #ef4444;
+  --info: #3b82f6;
+  
+  --sidebar-width: 280px;
+  --header-height: 80px;
+  
+  --font-sans: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --transition-tactile: all 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-smooth: all 0.3s ease;
+  
+  /* Claymorphic Shadows */
+  --clay-card-shadow: 
+    inset 4px 4px 6px rgba(255, 255, 255, 0.9), 
+    inset -4px -4px 6px rgba(0, 89, 255, 0.05), 
+    8px 8px 24px rgba(0, 89, 255, 0.15);
+  
+  --clay-button-shadow: 
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8), 
+    inset -2px -2px 4px rgba(0, 0, 0, 0.08), 
+    4px 4px 15px rgba(0, 210, 255, 0.45);
+
+  --clay-input-shadow: 
+    inset 2px 2px 5px rgba(0, 0, 0, 0.04), 
+    inset -2px -2px 5px rgba(255, 255, 255, 0.8);
+    
+  /* Spatial UI Shadows */
+  --spatial-shadow-l1: 0 4px 12px rgba(0, 89, 255, 0.05);
+  --spatial-shadow-l2: 0 12px 32px rgba(0, 89, 255, 0.12);
+  --spatial-shadow-l3: 0 24px 48px rgba(0, 89, 255, 0.18);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-primary);
+  background-image: 
+    radial-gradient(at 10% 20%, rgba(224, 231, 255, 0.6) 0px, transparent 50%),
+    radial-gradient(at 90% 10%, rgba(238, 242, 255, 0.8) 0px, transparent 50%),
+    radial-gradient(at 50% 80%, rgba(243, 244, 246, 0.5) 0px, transparent 50%);
+  color: var(--text-primary);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar for claymorphic lists */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 9999px;
+  border: 2px solid var(--bg-primary);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Claymorphic Volumetric Cards */
+.clay-card {
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--clay-card-shadow);
+  transition: var(--transition-tactile);
+  padding: 24px;
+  position: relative;
+}
+
+.clay-card:hover {
+  transform: translateY(-4px) scale(1.01);
+  box-shadow: 
+    inset 4px 4px 6px rgba(255, 255, 255, 0.9), 
+    inset -4px -4px 6px rgba(165, 180, 252, 0.2), 
+    12px 12px 32px rgba(165, 180, 252, 0.35);
+}
+
+/* Spatial Elevated Cards (Multi-layered UI) */
+.spatial-layer-1 {
+  box-shadow: var(--spatial-shadow-l1);
+  transform: translateZ(10px);
+}
+.spatial-layer-2 {
+  box-shadow: var(--spatial-shadow-l2);
+  transform: translateZ(20px);
+}
+.spatial-layer-3 {
+  box-shadow: var(--spatial-shadow-l3);
+  transform: translateZ(30px);
+}
+
+/* Claymorphic Buttons */
+.btn-clay-primary, .btn-primary {
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 9999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: var(--clay-button-shadow);
+  transition: var(--transition-tactile);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+}
+
+.btn-clay-primary:hover, .btn-primary:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 
+    inset 2px 2px 4px rgba(255, 255, 255, 0.8), 
+    inset -2px -2px 4px rgba(0, 0, 0, 0.08), 
+    6px 6px 18px rgba(0, 210, 255, 0.45);
+  filter: brightness(1.05);
+}
+
+.btn-clay-primary:active, .btn-primary:active {
+  transform: translateY(1px) scale(0.97);
+  box-shadow: 
+    inset 1px 1px 2px rgba(0, 0, 0, 0.2), 
+    inset -1px -1px 2px rgba(255, 255, 255, 0.8);
+}
+
+.btn-clay-secondary, .btn-secondary {
+  background: #f8fafc;
+  color: var(--text-primary);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 9999px;
+  padding: 12px 28px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 
+    inset 2px 2px 4px rgba(255, 255, 255, 0.9), 
+    inset -2px -2px 4px rgba(0, 0, 0, 0.04), 
+    4px 4px 12px rgba(0, 0, 0, 0.05);
+  transition: var(--transition-tactile);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  outline: none;
+}
+
+.btn-clay-secondary:hover, .btn-secondary:hover {
+  background: #f1f5f9;
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 
+    inset 2px 2px 4px rgba(255, 255, 255, 0.9), 
+    inset -2px -2px 4px rgba(0, 0, 0, 0.04), 
+    6px 6px 16px rgba(0, 0, 0, 0.08);
+}
+
+.btn-clay-secondary:active, .btn-secondary:active {
+  transform: translateY(1px) scale(0.97);
+}
+
+/* Claymorphic Debossed Inputs */
+.clay-input {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: var(--text-primary);
+  box-shadow: var(--clay-input-shadow);
+  outline: none;
+  transition: var(--transition-smooth);
+}
+
+.clay-input:focus {
+  border-color: var(--primary-light);
+  background: #ffffff;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 89, 255, 0.02), 
+    0 0 0 3px rgba(0, 89, 255, 0.1);
+}
+
+/* Grid systems & layout containers */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+
+.page-container {
+  animation: slideInUp 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  padding-bottom: 40px;
+}
+
+.section-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 24px;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Claymorphic Table Structure */
+.table-wrapper {
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  box-shadow: var(--clay-card-shadow);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  margin-top: 20px;
+}
+
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th {
+  background: #f8fafc;
+  padding: 18px 24px;
+  font-weight: 700;
+  color: var(--text-secondary);
+  border-bottom: 1px solid #edf2f7;
+  text-align: left;
+}
+
+.custom-table td {
+  padding: 18px 24px;
+  color: var(--text-secondary);
+  border-bottom: 1px solid #edf2f7;
+}
+
+.custom-table tr:last-child td {
+  border-bottom: none;
+}
+
+.custom-table tr:hover td {
+  background: #f8fafc;
+}
+
+/* Status Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 700;
+  gap: 6px;
+  box-shadow: 
+    inset 1px 1px 2px rgba(255, 255, 255, 0.8),
+    1px 1px 4px rgba(0, 0, 0, 0.02);
+}
+
+.badge-success {
+  background: #ecfdf5;
+  color: #059669;
+  border: 1px solid #d1fae5;
+}
+
+.badge-warning {
+  background: #fffbeb;
+  color: #d97706;
+  border: 1px solid #fef3c7;
+}
+
+.badge-error {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fee2e2;
+}
+
+.badge-info {
+  background: #f0f9ff;
+  color: #0284c7;
+  border: 1px solid #e0f2fe;
+}
+
+/* Spatial Navigation Sidebar */
+.spatial-sidebar {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 32px;
+  box-shadow: var(--spatial-shadow-l2);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  transition: var(--transition-smooth);
+}
+
+.spatial-sidebar button {
+  border-radius: 16px;
+  transition: var(--transition-tactile);
+}
+
+.spatial-sidebar button:hover {
+  transform: translateX(4px);
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.floating-element {
+  animation: float 4s infinite ease-in-out;
+}
