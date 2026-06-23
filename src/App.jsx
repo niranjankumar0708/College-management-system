@@ -229,7 +229,7 @@ export default function App() {
           </div>
           <div>
             <h1 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', margin: 0, tracking: '-0.02em' }}>EDUSPIRE</h1>
-            <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.1em' }}>ERP SYSTEM</span>
+            <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.1em' }}>COLLEGE MANAGEMENT SYSTEM</span>
           </div>
         </div>
 
@@ -327,7 +327,7 @@ export default function App() {
         }}>
           <div>
             <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)' }}>{profileDetails[role].label}</h3>
-            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Eduspire Academic Portal & ERP</span>
+            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Eduspire Academic Portal & College Management System</span>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>

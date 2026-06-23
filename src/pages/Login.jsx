@@ -63,12 +63,12 @@ export default function Login({ onLoginSuccess }) {
             </div>
             <div>
               <h1 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-primary)', tracking: '-0.02em' }}>EDUSPIRE</h1>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.15em' }}>CAMPUS ERP SUITE</span>
+              <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.15em' }}>CAMPUS COLLEGE MANAGEMENT SYSTEM SUITE</span>
             </div>
           </div>
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>Welcome to the Next-Gen Portal</h2>
           <p style={{ color: 'var(--text-secondary)', lineHeight: 1.6, fontSize: '15px' }}>
-            Eduspire ERP is built on a spatial architecture offering multi-role access, real-time fee reconciliation, club registrations, and placement drives.
+            Eduspire College Management System is built on a spatial architecture offering multi-role access, real-time fee reconciliation, club registrations, and placement drives.
           </p>
         </div>
 

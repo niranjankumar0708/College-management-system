@@ -36,7 +36,7 @@ export default function InvoiceTemplate({ invoice = {}, onClose }) {
         <div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--primary)', marginBottom: '8px' }}>
             <Receipt size={28} />
-            <span style={{ fontSize: '20px', fontWeight: 800, tracking: '0.05em' }}>EDUSPIRE ERP</span>
+            <span style={{ fontSize: '20px', fontWeight: 800, tracking: '0.05em' }}>EDUSPIRE COLLEGE MANAGEMENT SYSTEM</span>
           </div>
           <p style={{ fontSize: '13px', color: 'var(--text-secondary)' }}>Eduspire Institute of Technology</p>
           <p style={{ fontSize: '13px', color: 'var(--text-muted)' }}>Campus Avenue, Tech City, 560001</p>

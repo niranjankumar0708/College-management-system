@@ -11,7 +11,7 @@ export default function ResumeBuilder() {
     summary: 'Enthusiastic computer science student with a strong passion for front-end architecture, interactive dashboards, and design systems.',
     skills: 'React.js, Javascript, CSS3, TailwindCSS, Vite, Node.js',
     experience: 'Software Intern at Tech Corp (Summer 2025)',
-    project: 'ERP Student Portal (React, Custom CSS)'
+    project: 'College Management System Student Portal (React, Custom CSS)'
   });
 
   const handlePrint = () => {
