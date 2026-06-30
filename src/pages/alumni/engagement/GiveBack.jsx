@@ -53,7 +53,7 @@ export default function GiveBack() {
             const percent = Math.round((fund.raised / fund.target) * 100);
             const inputId = `amount-${fund.id}`;
             return (
-              <div key={fund.id} className="glass-card" style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '24px', alignItems: 'center', flexWrap: 'wrap' }}>
+              <div key={fund.id} className="glass-card" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '24px', alignItems: 'center' }}>
                 <div>
                   <h3 style={{ fontSize: '18px', fontWeight: 700, color: 'var(--text-primary)' }}>{fund.title}</h3>
                   <p style={{ fontSize: '13px', color: 'var(--text-secondary)', margin: '6px 0 16px', lineHeight: 1.5 }}>{fund.desc}</p>

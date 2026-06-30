@@ -13,7 +13,7 @@ export default function DuesOverview({ parentFees = [], navigateToPay }) {
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Overview of your ward's pending, verified, and settled academic invoices.</p>
 
       {/* Progress Card */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '30px', flexWrap: 'wrap', marginBottom: '24px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px', marginBottom: '24px' }}>
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', justifyBetween: 'center' }}>
           <h3 style={{ fontSize: '16px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px' }}>Payment Completion Status</h3>
           <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px', marginBottom: '16px' }}>

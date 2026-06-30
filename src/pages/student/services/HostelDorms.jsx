@@ -36,7 +36,7 @@ export default function HostelDorms() {
       <h2 className="section-title"><Home color="var(--primary)" /> Hostel & Dorm Allocations</h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>View room allocations, check warden details, and apply for gate passes/no-objections.</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '30px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
         {/* Allocation Info & Form */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
           <div className="glass-card">
@@ -69,7 +69,7 @@ export default function HostelDorms() {
                   required 
                 />
               </div>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
                 <div>
                   <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '4px' }}>Out Date/Time</label>
                   <input 

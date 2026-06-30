@@ -49,7 +49,7 @@ export default function InvoiceTemplate({ invoice = {}, onClose }) {
       </div>
 
       {/* Bill To & Details */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '24px', fontSize: '14px' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '20px', marginBottom: '24px', fontSize: '14px' }}>
         <div>
           <h4 style={{ color: 'var(--text-muted)', textTransform: 'uppercase', fontSize: '11px', fontWeight: 700, marginBottom: '6px' }}>Paid By:</h4>
           <p style={{ fontWeight: 600, color: 'var(--text-primary)' }}>{data.studentName}</p>

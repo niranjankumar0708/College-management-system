@@ -26,7 +26,7 @@ export default function MentorClubs() {
       <h2 className="section-title"><MessageSquare color="var(--primary)" /> Mentorship & Guest Sessions</h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Share your industry expertise. Conduct interactive technical workshops or mentor student innovation clubs.</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: '30px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
         {/* Form */}
         <div className="glass-card">
           <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '16px' }}>Schedule Guest Session</h3>
@@ -49,7 +49,7 @@ export default function MentorClubs() {
               <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '6px' }}>Session Topic / Title</label>
               <input type="text" className="glass-input" placeholder="e.g. Scaling Web Apps with AWS" required value={formData.topic} onChange={(e) => setFormData({ ...formData, topic: e.target.value })} />
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '12px' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '13px', color: 'var(--text-secondary)', marginBottom: '6px' }}>Session Type</label>
                 <select className="glass-input" style={{ background: 'var(--bg-secondary)', cursor: 'pointer' }} value={formData.type} onChange={(e) => setFormData({ ...formData, type: e.target.value })}>

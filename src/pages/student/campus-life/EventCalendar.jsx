@@ -19,7 +19,7 @@ export default function EventCalendar() {
       <h2 className="section-title"><CalendarRange color="var(--primary)" /> Event Calendar</h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Browse upcoming hackathons, tech workshops, guest lectures, and cultural fests.</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '30px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
         {/* Calendar Card */}
         <div className="glass-card">
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '20px' }}>

@@ -23,11 +23,11 @@ export default function ResumeBuilder() {
       <h2 className="section-title"><FileText color="var(--primary)" /> Smart Resume Builder</h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Draft and refine a professional, recruiter-ready resume. Preview formatting in real-time.</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '30px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
         {/* Editor Form */}
         <div className="glass-card" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           <h3 style={{ fontSize: '18px', fontWeight: 700 }}>Resume Details</h3>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '4px' }}>Full Name</label>
               <input type="text" className="glass-input" value={profile.name} onChange={(e) => setProfile({ ...profile, name: e.target.value })} />
@@ -38,7 +38,7 @@ export default function ResumeBuilder() {
             </div>
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px' }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px' }}>
             <div>
               <label style={{ display: 'block', fontSize: '12px', color: 'var(--text-secondary)', marginBottom: '4px' }}>Email</label>
               <input type="text" className="glass-input" value={profile.email} onChange={(e) => setProfile({ ...profile, email: e.target.value })} />

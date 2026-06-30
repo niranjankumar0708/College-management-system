@@ -34,36 +34,38 @@ export default function Login({ onLoginSuccess }) {
   };
 
   return (
-    <div style={{ 
+    <div className="login-container" style={{ 
       minHeight: '100vh', 
       display: 'flex', 
       alignItems: 'center', 
       justifyContent: 'center', 
-      padding: '24px',
+      padding: 'var(--app-padding, 16px)',
       position: 'relative',
-      overflow: 'hidden'
+      overflow: 'hidden',
+      boxSizing: 'border-box'
     }}>
       {/* Decorative Spatial Floating Blobs */}
       <div className="floating-element" style={{ position: 'absolute', top: '15%', left: '10%', width: '180px', height: '180px', borderRadius: '50%', background: 'rgba(99, 102, 241, 0.1)', filter: 'blur(30px)' }}></div>
       <div className="floating-element" style={{ position: 'absolute', bottom: '15%', right: '10%', width: '250px', height: '250px', borderRadius: '50%', background: 'rgba(14, 165, 233, 0.1)', filter: 'blur(40px)', animationDelay: '1.5s' }}></div>
 
-      <div style={{ display: 'flex', gap: '30px', maxWidth: '900px', width: '100%', flexWrap: 'wrap', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: '30px', maxWidth: '900px', width: '100%', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box' }}>
         
         {/* Brand Information Panel */}
-        <div style={{ flex: 1, minWidth: '320px', paddingRight: '20px' }}>
+        <div style={{ flex: '1', minWidth: '280px', paddingRight: '0', boxSizing: 'border-box' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '24px' }}>
             <div style={{ 
               background: 'linear-gradient(135deg, var(--primary-light), var(--primary))', 
               padding: '16px', 
               borderRadius: '24px', 
               boxShadow: 'var(--clay-button-shadow)',
-              color: '#ffffff'
+              color: '#ffffff',
+              flexShrink: 0
             }}>
               <GraduationCap size={40} />
             </div>
             <div>
-              <h1 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-primary)', tracking: '-0.02em' }}>EDUSPIRE</h1>
-              <span style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.15em' }}>CAMPUS COLLEGE MANAGEMENT SYSTEM SUITE</span>
+              <h1 style={{ fontSize: '32px', fontWeight: 800, color: 'var(--text-primary)', tracking: '-0.02em', margin: 0 }}>EDUSPIRE</h1>
+              <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.1em' }}>CAMPUS COLLEGE MANAGEMENT SYSTEM SUITE</span>
             </div>
           </div>
           <h2 style={{ fontSize: '24px', fontWeight: 700, color: 'var(--text-primary)', marginBottom: '12px' }}>Welcome to the Next-Gen Portal</h2>
@@ -73,21 +75,21 @@ export default function Login({ onLoginSuccess }) {
         </div>
 
         {/* Login Form Panel */}
-        <div style={{ flex: '1.1', minWidth: '320px', display: 'flex', flexDirection: 'column', gap: '20px' }}>
-          <div className="clay-card spatial-layer-2" style={{ padding: '36px' }}>
+        <div style={{ flex: '1.1', minWidth: '280px', display: 'flex', flexDirection: 'column', gap: '20px', width: '100%', boxSizing: 'border-box' }}>
+          <div className="clay-card spatial-layer-2" style={{ padding: 'var(--panel-padding, 36px)', boxSizing: 'border-box' }}>
             <h3 style={{ fontSize: '22px', fontWeight: 800, color: 'var(--text-primary)', marginBottom: '8px' }}>Portal Authentication</h3>
             <p style={{ color: 'var(--text-muted)', fontSize: '14px', marginBottom: '24px' }}>Please supply your academic accounts credentials.</p>
 
             {error && (
-              <div className="badge badge-error" style={{ width: '100%', padding: '12px 16px', marginBottom: '20px', borderRadius: '14px', display: 'flex', alignItems: 'center', gap: '8px' }}>
-                <ShieldAlert size={16} />
+              <div className="badge badge-error" style={{ width: '100%', padding: '12px 16px', marginBottom: '20px', borderRadius: '14px', display: 'flex', alignItems: 'center', gap: '8px', boxSizing: 'border-box' }}>
+                <ShieldAlert size={16} style={{ flexShrink: 0 }} />
                 <span>{error}</span>
               </div>
             )}
 
             <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
               <div>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <label style={{ display: 'flex', fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px', alignItems: 'center', gap: '6px' }}>
                   <Mail size={14} /> Email Address
                 </label>
                 <input 
@@ -101,7 +103,7 @@ export default function Login({ onLoginSuccess }) {
               </div>
 
               <div>
-                <label style={{ display: 'block', fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px', display: 'flex', alignItems: 'center', gap: '6px' }}>
+                <label style={{ display: 'flex', fontSize: '13px', fontWeight: 600, color: 'var(--text-secondary)', marginBottom: '8px', alignItems: 'center', gap: '6px' }}>
                   <Lock size={14} /> Password
                 </label>
                 <input 
@@ -121,7 +123,7 @@ export default function Login({ onLoginSuccess }) {
           </div>
 
           {/* Quick Login Assist Panel */}
-          <div className="clay-card" style={{ padding: '20px 24px', background: 'rgba(255,255,255,0.7)' }}>
+          <div className="clay-card" style={{ padding: '20px var(--app-padding, 24px)', background: 'rgba(255,255,255,0.7)', boxSizing: 'border-box' }}>
             <h4 style={{ fontSize: '13px', fontWeight: 700, color: 'var(--text-secondary)', textTransform: 'uppercase', letterSpacing: '0.05em', marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '6px' }}>
               <Sparkles size={14} color="var(--primary)" /> Quick Autofill Credentials
             </h4>

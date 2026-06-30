@@ -44,6 +44,11 @@
   --spatial-shadow-l1: 0 4px 12px rgba(0, 89, 255, 0.05);
   --spatial-shadow-l2: 0 12px 32px rgba(0, 89, 255, 0.12);
   --spatial-shadow-l3: 0 24px 48px rgba(0, 89, 255, 0.18);
+  
+  /* Layout variables */
+  --app-padding: 24px;
+  --app-gap: 24px;
+  --panel-padding: 40px;
 }
 
 * {
@@ -98,6 +103,55 @@ body {
     inset 4px 4px 6px rgba(255, 255, 255, 0.9), 
     inset -4px -4px 6px rgba(165, 180, 252, 0.2), 
     12px 12px 32px rgba(165, 180, 252, 0.35);
+}
+
+/* Glassmorphism Styles */
+.glass-card {
+  background: var(--bg-secondary);
+  border-radius: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.7);
+  box-shadow: var(--clay-card-shadow);
+  padding: 24px;
+  position: relative;
+  transition: var(--transition-tactile);
+}
+
+.glass-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 
+    inset 4px 4px 6px rgba(255, 255, 255, 0.9), 
+    inset -4px -4px 6px rgba(165, 180, 252, 0.2), 
+    12px 12px 32px rgba(165, 180, 252, 0.35);
+}
+
+.glass-panel {
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  box-shadow: var(--clay-input-shadow);
+  padding: 16px;
+  transition: var(--transition-smooth);
+}
+
+.glass-input {
+  width: 100%;
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 16px;
+  padding: 14px 18px;
+  color: var(--text-primary);
+  box-shadow: var(--clay-input-shadow);
+  outline: none;
+  transition: var(--transition-smooth);
+  box-sizing: border-box;
+}
+
+.glass-input:focus {
+  border-color: var(--primary-light);
+  background: #ffffff;
+  box-shadow: 
+    inset 2px 2px 4px rgba(0, 89, 255, 0.02), 
+    0 0 0 3px rgba(0, 89, 255, 0.1);
 }
 
 /* Spatial Elevated Cards (Multi-layered UI) */
@@ -342,4 +396,89 @@ body {
 
 .floating-element {
   animation: float 4s infinite ease-in-out;
+}
+
+/* Mobile responsive utilities and sidebar overlay styles */
+.mobile-menu-toggle {
+  display: none !important;
+}
+
+.mobile-sidebar-close {
+  display: none !important;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 90;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --app-padding: 12px;
+    --app-gap: 16px;
+    --panel-padding: 20px;
+  }
+
+  .mobile-menu-toggle {
+    display: inline-flex !important;
+  }
+
+  .mobile-sidebar-close {
+    display: block !important;
+  }
+
+  .spatial-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    bottom: 0 !important;
+    border-radius: 0 !important;
+    margin: 0 !important;
+    height: 100vh !important;
+    transform: translateX(-100%);
+    z-index: 100 !important;
+    box-shadow: 4px 0 24px rgba(0, 89, 255, 0.15);
+  }
+
+  .spatial-sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Table responsive wrap */
+  .table-wrapper {
+    overflow-x: auto;
+    border-radius: 16px;
+  }
+
+  .custom-table th, .custom-table td {
+    padding: 12px 16px;
+    font-size: 13px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  .clay-card {
+    padding: 16px !important;
+    border-radius: 16px !important;
+  }
+  
+  /* Quick helper for custom forms styling responsiveness */
+  .login-container {
+    padding: 16px !important;
+  }
 }

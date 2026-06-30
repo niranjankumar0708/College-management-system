@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { 
   GraduationCap, User, Settings, LogOut, CheckCircle2,
   CreditCard, History, Compass, CalendarRange, Sparkles, Home, BookOpen, Briefcase, FileText,
-  Landmark, Activity, Users, CalendarCheck, RefreshCw, MessageSquare
+  Landmark, Activity, Users, CalendarCheck, RefreshCw, MessageSquare, Menu, X
 } from 'lucide-react';
 
 import Login from './pages/Login';
@@ -45,6 +45,7 @@ export default function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [role, setRole] = useState('student'); // 'student' | 'parent' | 'faculty' | 'admin' | 'alumni'
   const [activePage, setActivePage] = useState('finance/payments');
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   // Shared Global Mock Database
   const [transactions, setTransactions] = useState([
@@ -199,38 +200,65 @@ export default function App() {
   }
 
   return (
-    <div style={{ display: 'flex', minHeight: '100vh', padding: '24px', gap: '24px' }}>
+    <div style={{ display: 'flex', minHeight: '100vh', padding: 'var(--app-padding)', gap: 'var(--app-gap)' }}>
       
+      {/* SIDEBAR OVERLAY Backdrop */}
+      {isSidebarOpen && (
+        <div 
+          className="sidebar-overlay" 
+          onClick={() => setIsSidebarOpen(false)}
+        />
+      )}
+
       {/* SPATIAL SIDEBAR */}
-      <aside className="spatial-sidebar" style={{ 
+      <aside className={`spatial-sidebar ${isSidebarOpen ? 'open' : ''}`} style={{ 
         width: 'var(--sidebar-width)', 
         position: 'fixed', 
         top: '24px', 
         left: '24px', 
         bottom: '24px', 
-        zIndex: 50,
+        zIndex: 100,
         display: 'flex', 
         flexDirection: 'column',
         padding: '30px 24px'
       }}>
         {/* Brand */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '36px' }}>
-          <div style={{ 
-            background: 'linear-gradient(135deg, var(--primary-light), var(--primary))', 
-            padding: '10px', 
-            borderRadius: '16px', 
-            display: 'flex', 
-            alignItems: 'center', 
-            justifyContent: 'center', 
-            color: '#ffffff',
-            boxShadow: 'var(--clay-button-shadow)'
-          }}>
-            <GraduationCap size={24} />
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '36px', width: '100%' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <div style={{ 
+              background: 'linear-gradient(135deg, var(--primary-light), var(--primary))', 
+              padding: '10px', 
+              borderRadius: '16px', 
+              display: 'flex', 
+              alignItems: 'center', 
+              justifyContent: 'center', 
+              color: '#ffffff',
+              boxShadow: 'var(--clay-button-shadow)'
+            }}>
+              <GraduationCap size={24} />
+            </div>
+            <div>
+              <h1 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', margin: 0, tracking: '-0.02em' }}>EDUSPIRE</h1>
+              <span className="hide-mobile" style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.1em' }}>COLLEGE MANAGEMENT SYSTEM</span>
+            </div>
           </div>
-          <div>
-            <h1 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)', margin: 0, tracking: '-0.02em' }}>EDUSPIRE</h1>
-            <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--text-muted)', letterSpacing: '0.1em' }}>COLLEGE MANAGEMENT SYSTEM</span>
-          </div>
+
+          <button 
+            className="btn-clay-secondary mobile-sidebar-close" 
+            onClick={() => setIsSidebarOpen(false)}
+            style={{ 
+              padding: '8px', 
+              borderRadius: '12px', 
+              border: 'none', 
+              background: 'transparent',
+              boxShadow: 'none',
+              cursor: 'pointer',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <X size={18} />
+          </button>
         </div>
 
         {/* Dynamic Navigation */}
@@ -258,7 +286,10 @@ export default function App() {
                   fontWeight: active ? 700 : 500,
                   transform: active ? 'scale(1.02)' : 'none'
                 }}
-                onClick={() => setActivePage(item.id)}
+                onClick={() => {
+                  setActivePage(item.id);
+                  setIsSidebarOpen(false);
+                }}
               >
                 <Icon size={18} color={active ? 'var(--primary)' : 'var(--text-secondary)'} />
                 <span style={{ fontSize: '14px' }}>{item.label}</span>
@@ -309,12 +340,15 @@ export default function App() {
 
       {/* SPATIAL CONTENT WRAPPER */}
       <div style={{ 
-        marginLeft: 'calc(var(--sidebar-width) + 24px)', 
+        marginLeft: 'var(--content-margin-left, calc(var(--sidebar-width) + 24px))', 
         flexGrow: 1, 
         minHeight: 'calc(100vh - 48px)', 
         display: 'flex', 
         flexDirection: 'column',
-        gap: '24px'
+        gap: 'var(--app-gap)',
+        width: '100%',
+        boxSizing: 'border-box',
+        overflow: 'hidden'
       }}>
         
         {/* SPATIAL HEADER */}
@@ -323,14 +357,31 @@ export default function App() {
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          padding: '0 32px'
+          padding: '0 var(--panel-padding)'
         }}>
-          <div>
-            <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)' }}>{profileDetails[role].label}</h3>
-            <span style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Eduspire Academic Portal & College Management System</span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+            <button 
+              className="btn-clay-secondary mobile-menu-toggle"
+              onClick={() => setIsSidebarOpen(true)}
+              style={{
+                padding: '8px',
+                borderRadius: '12px',
+                border: 'none',
+                boxShadow: 'none',
+                cursor: 'pointer',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+            >
+              <Menu size={18} />
+            </button>
+            <div>
+              <h3 style={{ fontSize: '18px', fontWeight: 800, color: 'var(--text-primary)' }}>{profileDetails[role].label}</h3>
+              <span className="hide-mobile" style={{ fontSize: '12px', color: 'var(--text-muted)' }}>Eduspire Academic Portal & College Management System</span>
+            </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+          <div className="hide-mobile" style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
             <span className="badge badge-success" style={{ fontWeight: 700, gap: '6px' }}>
               <CheckCircle2 size={13} /> Secure Session Verified
             </span>
@@ -338,7 +389,7 @@ export default function App() {
         </header>
 
         {/* DYNAMIC PAGE PANEL */}
-        <main className="clay-card spatial-layer-1" style={{ flexGrow: 1, padding: '40px' }}>
+        <main className="clay-card spatial-layer-1" style={{ flexGrow: 1, padding: 'var(--panel-padding)' }}>
           {renderPage()}
         </main>
       </div>

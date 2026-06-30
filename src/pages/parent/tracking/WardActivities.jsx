@@ -20,7 +20,7 @@ export default function WardActivities() {
       <h2 className="section-title"><Activity color="var(--primary)" /> Ward Academic & Extra-curricular Tracker</h2>
       <p style={{ color: 'var(--text-secondary)', marginBottom: '24px' }}>Monitor class attendance, course schedules, achievements, and club participation details of your ward.</p>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', gap: '30px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '30px' }}>
         {/* Class Attendance */}
         <div className="glass-card">
           <h3 style={{ fontSize: '18px', fontWeight: 700, marginBottom: '16px', display: 'flex', alignItems: 'center', gap: '8px' }}><BookOpen size={18} color="var(--primary)" /> Class Attendance Log</h3>
