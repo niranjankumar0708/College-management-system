@@ -346,7 +346,7 @@ export default function App() {
         display: 'flex', 
         flexDirection: 'column',
         gap: 'var(--app-gap)',
-        width: '100%',
+        width: 'calc(100% - var(--content-margin-left, calc(var(--sidebar-width) + 24px)))',
         boxSizing: 'border-box',
         overflow: 'hidden'
       }}>

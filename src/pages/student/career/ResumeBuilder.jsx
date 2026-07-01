@@ -88,7 +88,7 @@ export default function ResumeBuilder() {
             <div style={{ borderBottom: '2px solid #3b82f6', paddingBottom: '12px', marginBottom: '16px' }}>
               <h2 style={{ fontSize: '24px', fontWeight: 700, color: '#111827', margin: 0 }}>{profile.name}</h2>
               <p style={{ color: '#3b82f6', fontWeight: 600, fontSize: '14px', marginTop: '4px' }}>{profile.title}</p>
-              <div style={{ display: 'flex', gap: '16px', fontSize: '11px', color: '#6b7280', marginTop: '8px' }}>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px 16px', fontSize: '11px', color: '#6b7280', marginTop: '8px' }}>
                 <span>{profile.email}</span>
                 <span>{profile.phone}</span>
                 <span>{profile.github}</span>

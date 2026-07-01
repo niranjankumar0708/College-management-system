@@ -49,6 +49,7 @@
   --app-padding: 24px;
   --app-gap: 24px;
   --panel-padding: 40px;
+  --content-margin-left: calc(var(--sidebar-width) + 24px);
 }
 
 * {
@@ -429,6 +430,7 @@ body {
     --app-padding: 12px;
     --app-gap: 16px;
     --panel-padding: 20px;
+    --content-margin-left: 0px;
   }
 
   .mobile-menu-toggle {
